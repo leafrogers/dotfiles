@@ -31,12 +31,12 @@ let mapleader=','
 let NERDSpaceDelims=1
 let NERDTreeQuitOnOpen=1
 
+map <leader>a :<C-u>CocList diagnostics<CR>
 map <leader>c<space> :NERDCommenterToggle<CR>
+map <leader>f :CocAction<CR>
 map <leader>n :NERDTreeToggle<CR>
 map <leader>p :CtrlPMixed<CR>
 map <leader>t :TestNearest<CR>
-map <leader>f :CocAction<CR>
-map <leader>a :<C-u>CocList diagnostics<CR>
 
 set noshowmode
 set number relativenumber

@@ -1,5 +1,5 @@
 alias cob="git checkout -b "
-alias com="git checkout master"
+alias com="git checkout main"
 alias gap="git add -p"
 alias gc="killall gpg-agent && gpg-agent --daemon --pinentry-program /usr/local/bin/pinentry && git commit -v"
 alias gp="git pull"

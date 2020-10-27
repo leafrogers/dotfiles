@@ -22,7 +22,7 @@ echo "## Homebrew upgrades starting"
 echo "##"
 brew update
 brew upgrade
-#brew cask upgrade
+brew upgrade --cask
 echo "##"
 echo "## Homebrew upgrades done"
 echo ""

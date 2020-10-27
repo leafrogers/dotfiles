@@ -7,4 +7,4 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-eval "$(fnm env --multi --use-on-cd)"
+eval "$(fnm env --use-on-cd)"

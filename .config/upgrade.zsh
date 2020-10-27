@@ -5,7 +5,7 @@ echo "# Starting upgrades…"
 echo ""
 echo "## OhMyZsh upgrade starting"
 echo "##"
-upgrade_oh_my_zsh
+omz update
 echo "##"
 echo "## OhMyZsh upgrade done"
 echo ""

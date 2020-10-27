@@ -3,6 +3,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'janko/vim-test'
@@ -15,6 +16,7 @@ call plug#end()
 
 colorscheme base16-gruvbox-dark-medium
 
+let g:coc_snippet_next = '<tab>'
 let g:lightline = {
 \	'active': {
 \		'left': [ [ 'mode', 'paste' ], [ 'gitbranch' ], [ 'readonly', 'filename', 'modified' ] ],

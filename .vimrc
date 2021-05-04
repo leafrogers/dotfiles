@@ -8,15 +8,19 @@ Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'janko/vim-test'
 Plug 'joegesualdo/jsdoc.vim'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'tpope/vim-sensible'
 call plug#end()
 
 colorscheme base16-gruvbox-dark-medium
 
 let g:coc_snippet_next = '<tab>'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:lightline = {
 \	'active': {
 \		'left': [ [ 'mode', 'paste' ], [ 'gitbranch' ], [ 'readonly', 'filename', 'modified' ] ],
@@ -44,8 +48,8 @@ set noshowmode
 set number relativenumber
 set signcolumn=yes
 set termguicolors
+set textwidth=100
 set updatetime=300
-set wildignore+=*/node_modules/*
 
 function! StatusDiagnostic() abort
 	let data = get(b:, 'coc_diagnostic_info', {})

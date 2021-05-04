@@ -12,6 +12,8 @@ brew "ripgrep"
 brew "vim"
 brew "heroku/brew/heroku"
 brew "schniz/tap/fnm"
+brew "rust"
+brew "commitizen"
 
 #cask "1password"
 cask "alfred"

@@ -12,17 +12,10 @@ echo ""
 echo ""
 echo "## NodeJS upgrades starting"
 echo "##"
-fnm uninstall 10
-fnm install 10
-fnm uninstall 12
-fnm install 12
-fnm uninstall 14
-fnm install 14
-fnm uninstall 15
-fnm install 15
 fnm uninstall 16
 fnm install 16
-fnm default 12
+fnm default 16
+n use
 echo "##"
 echo "## NodeJS upgrades done"
 echo ""

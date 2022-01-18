@@ -4,3 +4,4 @@
 .node-version
 .nvmrc
 cz.*
+dump.rdb

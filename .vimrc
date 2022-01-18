@@ -1,13 +1,17 @@
 call plug#begin()
 Plug 'airblade/vim-gitgutter'
+Plug 'ap/vim-buftabline'
 Plug 'chriskempson/base16-vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'honza/vim-snippets'
+Plug 'heavenshell/vim-jsdoc', {
+\	'for': ['javascript', 'javascript.jsx','typescript'],
+\	'do': 'make install'
+\ }
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'janko/vim-test'
-Plug 'joegesualdo/jsdoc.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'preservim/nerdcommenter'
@@ -18,12 +22,10 @@ call plug#end()
 
 colorscheme base16-gruvbox-dark-medium
 
-let g:coc_snippet_next = '<tab>'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:buftabline_indicators = 1
 let g:lightline = {
 \	'active': {
-\		'left': [ [ 'mode', 'paste' ], [ 'gitbranch' ], [ 'readonly', 'filename', 'modified' ] ],
+\		'left': [ [ 'mode', 'paste' ], [ 'gitbranch' ], [ 'readonly' ] ],
 \		'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'linting'] ]
 \	},
 \	'component_function': {
@@ -37,12 +39,29 @@ let mapleader=','
 let NERDSpaceDelims=1
 let NERDTreeQuitOnOpen=1
 
-map <leader>a :<C-u>CocList diagnostics<CR>
-map <leader>c<space> :NERDCommenterToggle<CR>
-map <leader>f :CocAction<CR>
-map <leader>n :NERDTreeToggle<CR>
-map <leader>p :CtrlPMixed<CR>
-map <leader>t :TestNearest<CR>
+nmap <leader>0 <Plug>BufTabLine.Go(-1)
+nmap <leader>1 <Plug>BufTabLine.Go(1)
+nmap <leader>2 <Plug>BufTabLine.Go(2)
+nmap <leader>3 <Plug>BufTabLine.Go(3)
+nmap <leader>4 <Plug>BufTabLine.Go(4)
+nmap <leader>5 <Plug>BufTabLine.Go(5)
+nmap <leader>6 <Plug>BufTabLine.Go(6)
+nmap <leader>7 <Plug>BufTabLine.Go(7)
+nmap <leader>8 <Plug>BufTabLine.Go(8)
+nmap <leader>9 <Plug>BufTabLine.Go(9)
+
+nnoremap <leader>/ :Rg<CR>
+nnoremap <leader><Left> :bprev<CR>
+nnoremap <leader><Right> :bnext<CR>
+nnoremap <leader><Up> :bdelete<CR>
+nnoremap <leader>a :<C-u>CocList diagnostics<CR>
+nnoremap <leader>c<Space> :NERDCommenterToggle<CR>
+nnoremap <leader>f :CocAction<CR>
+nnoremap <leader>g :GFiles<CR>
+nnoremap <leader>j <Plug>(jsdoc)
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>p :Files<CR>
+nnoremap <leader>t :TestNearest<CR>
 
 set noshowmode
 set number relativenumber

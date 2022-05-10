@@ -14,8 +14,14 @@ echo "## NodeJS upgrades starting"
 echo "##"
 fnm uninstall 16
 fnm install 16
-fnm default 16
-n use
+fnm uninstall 18
+fnm install 18
+fnm default 18
+
+if [[ -f ".nvmrc" ]]; then
+	n use
+fi
+
 echo "##"
 echo "## NodeJS upgrades done"
 echo ""

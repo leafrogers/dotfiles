@@ -1,6 +1,7 @@
 call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-buftabline'
+Plug 'ap/vim-css-color'
 Plug 'chriskempson/base16-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'heavenshell/vim-jsdoc', {

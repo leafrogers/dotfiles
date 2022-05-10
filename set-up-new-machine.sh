@@ -12,4 +12,4 @@ done;
 unset file;
 
 vim -c 'PlugInstall|q|q'
-vim -c 'CocInstall -sync coc-html coc-css coc-tsserver coc-eslint coc-prettier coc-json coc-yaml coc-highlight coc-emmet coc-markdownlint coc-snippets coc-cfn-lint|q|q'
+vim -c 'CocInstall -sync coc-html coc-css coc-tsserver coc-eslint coc-prettier coc-json coc-yaml coc-emmet coc-markdownlint coc-snippets coc-cfn-lint|q|q'

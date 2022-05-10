@@ -4,5 +4,5 @@ root = true
 end_of_line = lf
 insert_final_newline = true
 
-[*.{cjs,css,html,js,jsx,mjs,scss,vimrc}]
+[*.{cjs,css,html,js,jsx,mjs,scss,ts,tsx,vimrc}]
 indent_size = 4

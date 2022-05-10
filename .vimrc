@@ -31,10 +31,12 @@ let g:lightline = {
 \	},
 \	'component_function': {
 \		'gitbranch': 'gitbranch#name',
-\		'linting': 'StatusDiagnostic'
+\		'linting': 'coc#status'
 \	},
 \	'subseparator': { 'left': '│' }
 \ }
+
+" let g:node_client_debug = 1
 
 let mapleader=','
 let NERDSpaceDelims=1
@@ -71,20 +73,39 @@ set termguicolors
 set textwidth=100
 set updatetime=300
 
-function! StatusDiagnostic() abort
-	let data = get(b:, 'coc_diagnostic_info', {})
-	let msgs = []
-	if empty(data) || eval(join(data['lnums'], '+')) == 0
-		return 'Linted ✔'
-	endif
-	if get(data, 'information', 0)
-		call add(msgs, 'ℹ️  Messages: ' . data['information'])
-	endif
-	if get(data, 'warning', 0)
-		call add(msgs, '⚠️  Warnings: ' . data['warning'])
-	endif
-	if get(data, 'error', 0)
-		call add(msgs, '🚫 Errors: ' . data['error'])
-	endif
-	return join(msgs, ' │ ')
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
